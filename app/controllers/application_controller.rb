@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     post_images_path
   end
+  
+  private
+  
+  def admin_controller?
+    self.class.module_parent_name == 'Admin'
+  end
 
   protected
 
